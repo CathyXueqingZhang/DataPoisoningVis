@@ -20,7 +20,7 @@ Ensure you have the following requirements installed:
 ### Installation
 Clone the repository to your local machine:
 ```bash
-git [repository_url](https://github.com/CathyXueqingZhang/DataPoisoningVis.git)
+git https://github.com/CathyXueqingZhang/DataPoisoningVis.git
 cd DataPoisoningVis
 ```
 
