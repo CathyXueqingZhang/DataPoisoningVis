@@ -34,4 +34,4 @@ To deploy the dashboard locally, run the following command:
 ```bash
 python3 app.py
 ```
-After running the command, navigate to http://127.0.0.1:5000 in your web browser to access the dashboard.
+After running the command, navigate to http://127.0.0.1:5000 in your web browser to access the website.
