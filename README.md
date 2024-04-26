@@ -22,13 +22,16 @@ Clone the repository to your local machine:
 ```bash
 git [repository_url](https://github.com/CathyXueqingZhang/DataPoisoningVis.git)
 cd DataPoisoningVis
+```bash
 
 Install the required packages:
 ```bash
 pip install -r requirements.txt
+```bash
 
 Running the Application
 To deploy the dashboard locally, run the following command:
 ```bash
 python3 app.py
+```bash
 After running the command, navigate to http://127.0.0.1:5000 in your web browser to access the dashboard.
