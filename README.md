@@ -1,4 +1,4 @@
-# Interactive Dashboard for Visualizing the Shadows: Unveiling Data Poisoning Behaviors in Federated Learning
+# Demo Website for Visualizing the Shadows: Unveiling Data Poisoning Behaviors in Federated Learning
 
 ## Introduction
 This interactive dashboard is designed to dynamically engage users with visualization data, allowing in-depth exploration of various aspects of federated learning (FL). The dashboard provides insights into data poisoning effects, performance of individual clients, and model learning progression over time in the context of a label flipping attack.
