@@ -1,0 +1,8 @@
+Flask
+pandas
+matplotlib
+dash
+dash-html-components
+dash-core-components
+numpy  # If you're using PCA, numpy is likely needed
+scikit-learn  # Commonly used for PCA unless your 'pca' module is custom
