@@ -5,10 +5,10 @@ This interactive dashboard is designed to dynamically engage users with visualiz
 
 ## Features
 ### Global Model Performance Analysis
-The dashboard visualizes the F1 score of the global model under user-specified attack settings to assess performance across the FL learning process (see **Figure 1**). Users can zoom into the F1 score details for both the source victim class and the attack target class over specified epoch rounds.
+The dashboard visualizes the F1 score of the global model under user-specified attack settings to assess performance across the FL learning process. Users can zoom into the F1 score details for both the source victim class and the attack target class over specified epoch rounds.
 
 ### Local Model Updates Visualization
-Using three-dimensional PCA visualizations, the dashboard presents local model updates from clients during each training round (see **Figure 2**). It identifies malicious and benign clients, allowing users to select specific rounds and clients for detailed analysis of the updates. This feature is inspired by the decoupling effect observed in poisoned and benign updates and helps users understand learning dynamics and pinpoint rounds where performance deterioration due to poisoning occurs.
+Using three-dimensional PCA visualizations, the dashboard presents local model updates from clients during each training round. It identifies malicious and benign clients, allowing users to select specific rounds and clients for detailed analysis of the updates. This feature is inspired by the decoupling effect observed in poisoned and benign updates and helps users understand learning dynamics and pinpoint rounds where performance deterioration due to poisoning occurs.
 
 ## Getting Started
 
