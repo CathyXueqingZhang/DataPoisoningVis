@@ -1,0 +1,791 @@
+<!DOCTYPE html>  
+<html lang="zh-CN">  
+  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0">  
+    <title>网页标题</title>  
+    <meta name="author" content="super">
+    <meta name="website" content="https://rongsp.com">
+
+    <link rel="stylesheet" href="../static/css/layui.css">
+    <link rel="stylesheet" href="../static/css/styles.css">  
+    <style type="text/css">
+        #slide1 {
+            margin-top: 10px;
+            margin-left: 5px;
+            width: 200px;
+        }
+        #slide2 {
+            margin-top: 10px;
+            margin-left: 5px;
+            width: 200px;
+        }
+
+    </style>
+  
+<body>  
+    <header>  
+        <h1>&nbsp;&nbsp;&nbsp;Poisoning Effect On Federated Learning</h1>  
+        
+    </header>  
+  
+    <main>  
+        <div style="background-color: rgba(192, 217, 255, 0.6);"> 
+            <div class="left">
+                <div style="text-align: center; border-bottom: solid 1px #a6a6a6; padding-bottom: 10px;">
+                    <h3>Simulation Panel</h3>
+                    <!-- <a href="text.html">111</a> -->
+                </div>
+                <div style="padding: 20px 0px;">
+                <form id="myForm" >   
+                     <div style="border-left: solid 1px #a6a6a6; padding-left: 10px;">
+                        <h4>Select Function</h4>
+                        <input type="radio" id="option3" name="option1" value="Label Flipping Attack">  
+                        <label for="option3">Label Flipping Attack</label><br> 
+                        <input type="radio" id="option1" name="option1" value="Attack Timing">  
+                        <label for="option1">Attack Timing</label><br>  
+                        <input type="radio" id="option2" name="option1" value="Malicious Participant Availability">  
+                        <label for="option2">Malicious Participant Availability</label><br>  
+                         
+                    </div>
+                    
+                </br>
+                <div style="border-left: solid 1px #a6a6a6; padding-left: 10px;">
+                    <h4>Number Of Malicions Worker (Total 50 Workers) </h4> 
+                         5&nbsp;&nbsp;<input type="range" min="5" max="35" value="0" step="5" id="slider5">
+                         &nbsp;&nbsp; 35
+                     
+                    <p>Current Value: <span id="sliderValue5">0</span></p>  
+                </div>
+                <div id="hidden-paraCI" style="display: none;">
+                 </br> 
+                <div  style="border-left: solid 1px #a6a6a6; padding-left: 10px; ">
+               
+                                <input type="radio" id="optionCI_1" name="optionCI" value="CIFAR">
+                                <label for="optionCI_1">CIFAR-10</label><br>  
+                                <input type="radio" id="optionCI_2" name="optionCI" value="Fashion MNIST">
+                                <label for="optionCI_2">Fashion MNIST</label><br> 
+                </div>
+            </div>
+                <div id="hidden-para1">
+                    <br/>
+                    <div style="border-left: solid 1px #a6a6a6; padding-left: 10px;" >
+                        <h4>Attack Timing</h4> 
+                        
+                                 40&nbsp;&nbsp;<input type="range" min="40" max="120" value="0" step="40" id="slider4"> &nbsp;&nbsp;120
+                            <p>Current Value: <span id="sliderValue4">0</span></p>  
+                            <input type="radio" id="option3_1" name="option2" value="Attack Entry Point">  
+                                <label for="option3_1">Attack Entry Point</label><br>  
+                                <input type="radio" id="option3_2" name="option2" value="Attack End Point">  
+                                <label for="option3_2">Attack End Point</label><br> 
+                        </div>
+                    </div>  <div id="hidden-para2">
+                        <br/>
+                        <div style="border-left: solid 1px #a6a6a6; padding-left: 10px;">
+                         <h4>Participant Availability</h4> 
+                                
+                                0.5&nbsp;&nbsp;<input type="range" min="0.5" max="0.9" value="0" id="slider3" step="0.2">  &nbsp;&nbsp;0.9
+                                 <p>Current Value: <span id="sliderValue3">0</span> </p>
+                        </div>
+                </div></br> 
+                <div style="border-top: solid 1px #a6a6a6;">
+                    </br> 
+                </div>
+                        
+                        <div style="border-left: solid 1px #a6a6a6; padding-left: 10px; ">
+                            
+                         <h4>Epoch Round Range</h4> 
+                        
+                         <!-- <div id="slide1"></div> -->
+                        10&nbsp;&nbsp;<div id="slide2" style="display: inline-block;"></div>&nbsp;&nbsp;199
+                        </div>
+
+                        <div style="text-align: center; padding-top: 20px; margin: auto;" >
+                            <input type="submit" value="Submit" class="inp" > 
+                            <!-- <button type="button" class="inp" onclick="submitForm()">Submit</button>  onclick="submitForm()" -->
+                        </div>
+                         
+                </form>  
+            </div>
+                
+              
+            </div>
+            
+            <div class="right" >
+                <div id="displayText1" style="display: block; 
+                        background: url('../static/css/none.png')  no-repeat center center;background-size: 70% 90%; width: 100%;height: 600px; margin-top: 50px;"> </div>
+                <div id="displayText2" style="display: none;">
+                <ul class="demo_ul">
+                    <li class="demo_li">
+                        <input class="active" type="radio" name="check" id="active1" checked/><label for="active1" style="font-weight:bolder;">F1  Score Analysis</label>
+                        
+                        
+                        <div style="margin-left: 150px; margin-top: 20px;"  >
+                    <div class="right_top">
+                        <div style="font-weight:bolder;">Overall F1 Score</div>
+                        <img id="img1" alt="Image Generating， Please Wait" style="border-radius: 5px; height: 280px; width: 453px;"/><br/>
+                        
+                    </div>
+                    <div class="right_bottom">
+                        
+                        <div class="right_bottom_1"><div style="font-weight:bolder;">Victim Class F1 Score</div>
+                            <img id="img2" alt="Image Generating， Please Wait" style="border-radius: 5px; height: 240px; width: 388px;"/><br/>
+                        
+                        </div>
+                        
+                        <div class="right_bottom_2"><div style="font-weight:bolder;">Target Class F1 Score</div>
+                            <img id="img3" alt="Image Generating， Please Wait" style="border-radius: 5px; height: 240px; width: 388px;"/><br/>
+                        
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                 </li>
+                <li class="demo_li">
+                    <input class="active" type="radio" name="check" id="active2" /><label for="active2" style="font-weight:bolder;">Signature Analysis</label>
+                    <div style="margin-left: 20px; margin-top: 20px;">
+              
+                        <h4>Please Select Worker To Visualize:</h4>
+                        <h4 style="font-weight: 100;"><span>Malicious Workers</span>
+                            <label for="select-multiple"></label>  
+                            <select id="select_poisoner" class="form-select" style="width: 202px;height: 32px;margin-left: 10px;padding-left: 10px;">   
+                            </select> 
+                            
+                            <div class="custom-checkbox" id="myCustomCheckbox"></div>  <label for="myCustomCheckbox">Add Trace</label>  
+                            <select id="number_select" class="form-select" style="width: 202px; height: 32px; margin-left: 10px; padding-left: 10px;">
+                            <!-- Options will be added here dynamically -->
+                            </select>
+                            <br>
+                            
+            
+                            <div class="selected-tags_poisoner"></div> 
+                        </h4>
+                        <h4 style="font-weight: 100; margin: 10px 0px;">
+                           <span>Normal Workers</span>
+                            
+                            <label for="select-multiple"></label>  
+                            <select id="select_normal" class="form-select" style="width: 202px;height: 32px;margin-left: 10px;padding-left: 10px;">   
+                            </select>  
+                            <button style="display: inline-block; height: 32px; width: 100px; border-radius: 5px;color: #5c80ea;
+                             border: 1px solid #5c80ea;; background-color: #d5e4f9cc; margin-left: 50px;" id="allButton">Select All</button>
+                            <button style="display: inline-block; height: 32px; width: 70px; border-radius: 5px;color: #5c80ea;
+                             border: 1px solid #5c80ea;; background-color: #d5e4f9cc; margin-left: 50px;" id="resetButton">Reset</button>
+                            <button style="display: inline-block; height: 32px; width: 70px; border-radius: 5px;color: #5c80ea;
+                             border: 1px solid #5c80ea;; background-color: #d5e4f9cc; margin-left: 50px;" id="confirmButton">Confirm</button>
+                            <div class="selected-tags_normal"></div> 
+                        </h4>
+                        <div  id="img4" style="text-align: center; width:700px; border-right: solid 0.5px #a6a6a6;padding-right: 10px; display: none;">
+                           <div style="margin-bottom: 10px;font-weight:bolder;">PCA Of Each Selected Worker</div>
+                            <img id="image4" alt="Image Generating， Please Wait" style="border-radius: 5px; height: 400px; width:648px;"/>
+                            <div><a href="/view_visualization" target="_blank">View Interactive Visualization</a></div>
+                        </div>
+                        <div id="img5" style="text-align: center;  display: none;">
+                           <div style="margin-bottom: 10px;font-weight:bolder;">Visualization Of Each Round (Sum Of All Workers)</div>
+                            <img  id="image5" alt="Image Generating， Please Wait" style="border-radius: 5px; height: 400px; width:400px;  margin-left: 30px;"/>
+                            <div><a href="/view_visualization2" target="_blank">View Interactive Visualization 2</a></div>
+                        </div>
+                        <br/>
+                
+                        
+                    </div>
+                    
+                </li>
+            </ul>
+            </div> 
+        </div>
+    </div>
+        </div>
+
+
+    </main>  
+   
+    <script src="../static/css/layui.js"></script>
+    <script src="../static/css/jquery-3.1.1.min.js"></script>
+    <script> 
+       
+        var slider5 = document.getElementById("slider5");  
+        var sliderValue5 = document.getElementById("sliderValue5");  
+  
+        slider5.oninput = function() {  
+            sliderValue5.innerHTML = this.value;  
+        }  
+
+        var slider4 = document.getElementById("slider4");  
+        var sliderValue4 = document.getElementById("sliderValue4");  
+  
+        slider4.oninput = function() { 
+            sliderValue4.innerHTML = this.value;  
+        } 
+
+        var slider3 = 0
+        slider3 = document.getElementById("slider3");
+        var sliderValue3 = document.getElementById("sliderValue3");
+
+        slider3.oninput = function() {  
+            sliderValue3.innerHTML = this.value;  
+        } 
+
+        $('input:radio[name="option1"]').change(function () {
+            if ($("#option3").is(":checked")) {
+                $("#hidden-para1").hide();
+                $("#hidden-para2").hide();
+                $("#hidden-paraCI").show();
+             
+            }
+            if ($("#option1").is(":checked")) {
+                $("#hidden-para1").show();
+                $("#hidden-para2").hide();
+                $("#hidden-paraCI").hide();
+                
+              
+            }
+            if ($("#option2").is(":checked")) {
+                $("#hidden-para1").show();
+                $("#hidden-para2").show();
+                $("#hidden-paraCI").hide();
+
+            }
+            
+        })
+        
+        var range;
+       
+        layui.use('slider', function(){
+            var $ = layui.$
+                ,slider = layui.slider;
+
+            slider.render({
+                elem: '#slide2'
+                ,min: 10 // 最小值
+                ,max: 199 // 最大值
+                ,value: [50, 160] // 默认值，如果开启了range = true ,此处需要给一个数组[value1, value2]
+                ,range: true // 是否开启范围选择
+                ,theme: '#0A78FE' // 主题色
+                ,change: function(value) { // 滑块滑动时的回调，如果开启了range = true 值为[value1, value2]
+                    // alert(value);
+                    console.log(value) //动态获取滑块数值
+                    // do something
+                    range = value;
+                }
+            });
+        });
+        let poisonerArr=[];
+        let normalArr=[];
+        var optionsArray_poisoner = [];
+        var optionsArray_normal = [];
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // 阻止表单的默认提交行为
+            var slider3Value = $('#slider3').is(':visible') ? $('#slider3').val() : null; // Only use slider3 value if it is visible
+
+  
+        // 获取表单输入的值  
+        var option1 = document.getElementsByName("option1");
+				for(var i = 0; i < option1.length; i++){
+					if(option1[i].checked){
+						console.log(option1[i].value);
+                        var option1_v=option1[i].value;
+					}
+				}
+        var option2 = document.getElementsByName("option2");
+				for(var i = 0; i < option2.length; i++){
+					if(option2[i].checked){
+						console.log(option2[i].value);
+                        var option2_v=option2[i].value;
+					}
+				}
+        var optionCI = document.getElementsByName("optionCI");
+				for(var i = 0; i < optionCI.length; i++){
+					if(optionCI[i].checked){
+						console.log(optionCI[i].value);
+                        var optionCI_v=optionCI[i].value;
+					}
+				}
+        var slider2 = document.getElementById("slider2"); 
+
+       slider5_v = slider5.value
+       slider4_v = slider4.value
+       slider3_v = slider3.value
+
+        // 创建请求体， 
+        var requestBody = {  
+            option1_v: option1_v,  
+            option2_v: option2_v,
+            optionCI_v: optionCI_v,
+            slider5: slider5_v,
+            slider4: slider4_v,
+            slider3: slider3_v,
+            range: range
+        };
+
+
+        //下方是从后台获取数据的内容
+
+        //  构造表单数据  
+        // var formData = new FormData();  
+        // formData.append('option1_v', option1_v);  
+        // formData.append('option2_v', option2_v); 
+        // formData.append('optionCI_v', optionCI_v); 
+        // formData.append(); 
+        // formData.append('slider4', slider4);   
+        // formData.append('slider3', slider3); 
+        // formData.append('range', range); 
+        // const formData = new FormData(event.target);  
+        //     const data = {};  
+        //     for (const [key, value] of formData.entries()) {  
+        //         data[key] = value;  
+        //     }  
+        // 发送AJAX请求到后端服务器  
+        // 发送 POST 请求到后端
+        fetch('/submitForm', {  
+                method: 'POST',  
+                headers: {  
+                    'Content-Type': 'application/json'  
+                },  
+                body: JSON.stringify(requestBody)  
+
+            })  
+            .then(response => response.json()) // 假设后端返回的是 JSON 格式数据  
+        .then(responseData => {
+            console.log(responseData);
+            // 假设 responseData.message 包含图片的 URL  
+            const imgElement1 = document.getElementById('img1');  
+            imgElement1.src = responseData.image1_url; // 设置 img 标签的 src 属性为图片的 URL  
+            const imgElement2 = document.getElementById('img2');  
+            imgElement2.src = responseData.image2_url;   
+            const imgElement3 = document.getElementById('img3');  
+            imgElement3.src = responseData.image3_url;  
+
+            // document.getElementById("text") = responseData.message;
+            //console.log("Checking if script starts running");
+            //const poisonerClientElement = document.getElementById('select_poisoner');
+            //const normalClientElement = document.getElementById('select_normal');
+            //poisonerClientElement.innerHTML = responseData.poisoner;  // Set HTML content
+            //normalClientElement.innerHTML = responseData.normal;  // Set HTML content
+            //optionsArray_poisoner =responseData.poisoner;
+            //optionsArray_normal =responseData.normal;
+            //console.log(optionsArray_poisoner);
+            //console.log(optionsArray_normal);
+            const select_poisoner = document.getElementById('select_poisoner');
+
+              // Clear out any previous options
+              select_poisoner.innerHTML = '';
+
+              // Use the data from the response to populate the select element
+              responseData.poisoner.forEach(function(optionText) {
+                var option = document.createElement('option');
+                option.text = optionText;
+                option.value = optionText;
+                select_poisoner.appendChild(option);
+                });
+              const select_normal = document.getElementById('select_normal');
+
+              // Clear out any previous options
+              select_normal.innerHTML = '';
+
+              // Use the data from the response to populate the select element
+              responseData.normal.forEach(function(optionText) {
+                var option = document.createElement('option');
+                option.text = optionText;
+                option.value = optionText;
+                select_normal.appendChild(option);
+                });
+
+
+
+        })
+        .catch(error => {
+            console.error('请求失败:', error);
+        });
+
+        document.getElementById("displayText1").style.display = "none";
+        document.getElementById("displayText2").style.display = "block";
+        resetButton();
+        poisonerArr = [];
+        normalArr=[];
+        //  var PoisonerClientData =  `${slider5} ${slider4} ${slider3} ${range}`;
+        //  var NormalClientData =  `${slider5} ${slider4} ${slider3} ${range}`;
+        //  document.getElementById('PoisonerClient').innerHTML = PoisonerClientData;
+        //  document.getElementById('NormalClient').innerHTML = NormalClientData;
+});
+
+
+    // 定义选项数组
+    // optionsArray_poisoner = [1,2,3,4,5]//连上数据库之后需要注释掉
+    // 获取下拉列表元素
+    var select_poisoner = document.getElementById('select_poisoner');
+    console.log(optionsArray_poisoner)
+
+    // 遍历数组并为下拉列表添加选项
+    //optionsArray_poisoner.forEach(function(optionText) {
+    //    var option = document.createElement('option');
+    //    option.text = optionText;
+    //    option.value = optionText; // 通常这里可以设置与文本不同的值，如果需要的话
+    //    select_poisoner.appendChild(option);
+    //});
+    //console.log(optionsArray_poisoner)
+    var selectedTags_poisoner = document.querySelector('.selected-tags_poisoner');
+
+
+    // 当选项变化时
+    select_poisoner.addEventListener('change', function() {
+        // 清除已存在的标签
+        // while (selectedTags_poisoner.firstChild) {
+        //     selectedTags_poisoner.removeChild(selectedTags_poisoner.firstChild);
+        // }
+
+        // 遍历选中的选项
+        for (var i = 0; i < select_poisoner.selectedOptions.length; i++) {
+            var option = select_poisoner.selectedOptions[i];
+            var tag = document.createElement('div');
+            tag.classList.add('tag');
+            tag.textContent = option.text;
+            poisonerArr.push(select_poisoner.selectedOptions[i].value);
+            
+            console.log(poisonerArr[i]);
+            // 添加关闭按钮
+            var closeBtn = document.createElement('span');
+            closeBtn.classList.add('close');
+            closeBtn.textContent = '×';
+            closeBtn.addEventListener('click', function(e) {
+                var optionValue = this.parentNode.textContent;
+                // 取消选中对应选项
+                for (var j = 0; j < select_poisoner.options.length; j++) {
+                    if (select_poisoner.options[j].text === optionValue) {
+                        select_poisoner.options[j].selected = false;
+                        break;
+                    }
+                }
+                // 移除标签
+                this.parentNode.remove();
+            });
+
+            tag.appendChild(closeBtn);
+            selectedTags_poisoner.appendChild(tag);
+        }
+    });
+    // 初始化时触发一次变化事件以显示已选中的项（如果有的话）
+    select_poisoner.dispatchEvent(new Event('change'));
+
+
+
+
+
+     // 定义选项数组  
+    //  optionsArray_normal = ["4", "5", "6", "7"];
+  
+  // 获取下拉列表元素  
+  var select_normal = document.getElementById('select_normal');
+
+  var selectedTags_normal = document.querySelector('.selected-tags_normal');  
+
+  // 当选项变化时  
+  select_normal.addEventListener('change', function() {  
+      // 清除已存在的标签  
+      // while (selectedTags_normal.firstChild) {  
+      //     selectedTags_normal.removeChild(selectedTags_normal.firstChild);  
+      // }  
+
+      // 遍历选中的选项  
+      for (var i = 0; i < select_normal.selectedOptions.length; i++) {  
+          var option = select_normal.selectedOptions[i];  
+          var tag = document.createElement('div');  
+          tag.classList.add('tag');  
+          tag.textContent = option.text;  
+          normalArr.push(select_normal.selectedOptions[i].value);
+            
+            console.log(normalArr[i]);
+            console.log(normalArr);
+          // 添加关闭按钮  
+          var closeBtn = document.createElement('span');  
+          closeBtn.classList.add('close');  
+          closeBtn.textContent = '×';  
+          closeBtn.addEventListener('click', function(e) {  
+              var optionValue = this.parentNode.textContent;  
+              // 取消选中对应选项  
+              for (var j = 0; j < select_normal.options.length; j++) {  
+                  if (select_normal.options[j].text === optionValue) {  
+                      select_normal.options[j].selected = false;  
+                      break;  
+                  }  
+              }  
+              // 移除标签  
+              this.parentNode.remove();  
+          });  
+
+          tag.appendChild(closeBtn);  
+          selectedTags_normal.appendChild(tag);  
+      }  
+  });  
+  
+
+  // 初始化时触发一次变化事件以显示已选中的项（如果有的话）  
+  select_normal.dispatchEvent(new Event('change'));  
+
+
+//   document.getElementById('resetButton').addEventListener('click', function() {
+function resetButton(){
+        //清除已存在的标签  
+         for (var i = 0; i < select_normal.selectedOptions.length; i++) {
+            select_normal.selectedOptions[i].selected = false;
+        }
+
+        // Clear the tags display and reset the array
+        selectedTags_normal.innerHTML = '';
+        normalArr = []; // Reset the array
+
+
+        for (var i = 0; i < select_poisoner.selectedOptions.length; i++) {
+            select_poisoner.selectedOptions[i].selected = false;
+        }
+
+        // Clear the tags display and reset the array
+        selectedTags_poisoner.innerHTML = '';
+        poisonerArr = []; // Reset the array
+  };
+    document.addEventListener('DOMContentLoaded', function() {
+    var select = document.getElementById('number_select');
+    for (var i = 0; i < 50; i++) {
+        var option = document.createElement('option');
+        option.value = i;
+        option.text = i;
+        select.appendChild(option);
+    }
+    });
+
+  document.getElementById('resetButton').addEventListener('click', function() {
+
+
+        // Clear selected options in the select element
+        for (var i = 0; i < select_normal.selectedOptions.length; i++) {
+            select_normal.selectedOptions[i].selected = false;
+        }
+        
+        // Clear the tags display and reset the array
+        selectedTags_normal.innerHTML = '';
+        normalArr = []; // Reset the array
+
+
+        for (var i = 0; i < select_poisoner.selectedOptions.length; i++) {
+            select_poisoner.selectedOptions[i].selected = false;
+        }
+
+        // Clear the tags display and reset the array
+        selectedTags_poisoner.innerHTML = '';
+        poisonerArr = []; // Reset the array
+    });
+
+
+
+
+  document.getElementById('allButton').addEventListener('click', function() {
+       var select_normal = document.getElementById('select_normal');
+    var selectedTags_normal = document.querySelector('.selected-tags_normal');
+
+    // Clear existing tags before adding new ones
+    selectedTags_normal.innerHTML = '';
+
+    // Iterate over all options in the select element
+      resetButton();
+    for (var i = 0; i < select_normal.options.length; i++) {
+        select_normal.options[i].selected = true;
+
+        // Only proceed if the option is selected and not already added as a tag
+        if (select_normal.options[i].selected && !normalArr.includes(select_normal.options[i].value)) {
+            var tag = document.createElement('div');
+            tag.className = 'tag';
+            tag.textContent = select_normal.options[i].value;
+
+            // Create a '×' button to allow deselection
+            var closeBtn = document.createElement('span');
+            closeBtn.classList.add('close');
+            closeBtn.textContent = '×';
+
+            // Handle the click event on the '×' button
+            closeBtn.addEventListener('click', function(e) {
+                var optionValue = this.parentNode.textContent.replace('×', ''); // Remove the '×' to get the actual value
+                // Find and deselect the corresponding option in the select element
+                for (var j = 0; j < select_normal.options.length; j++) {
+                    if (select_normal.options[j].value === optionValue) {
+                        select_normal.options[j].selected = false;
+                        break;
+                    }
+                }
+                // Remove the tag from the display
+                this.parentNode.remove();
+                // Update the array after deselection
+                normalArr = normalArr.filter(function(value) { return value !== optionValue; });
+            });
+
+            tag.appendChild(closeBtn);
+            selectedTags_normal.appendChild(tag);
+            // Store the selected value in the array
+            normalArr.push(select_normal.options[i].value);
+        }
+    }
+
+    var select_poisoner = document.getElementById('select_poisoner');
+var selectedTags_poisoner = document.querySelector('.selected-tags_poisoner');
+
+// Clear existing tags before adding new ones
+selectedTags_poisoner.innerHTML = '';
+
+// Iterate over all options in the select element
+for (var i = 0; i < select_poisoner.options.length; i++) {
+    select_poisoner.options[i].selected = true;
+
+    // Only proceed if the option is selected and not already added as a tag
+    if (select_poisoner.options[i].selected && !poisonerArr.includes(select_poisoner.options[i].value)) {
+        var tag = document.createElement('div');
+        tag.className = 'tag';
+        tag.textContent = select_poisoner.options[i].value;
+
+        // Create a '×' button to allow deselection
+        var closeBtn = document.createElement('span');
+        closeBtn.classList.add('close');
+        closeBtn.textContent = '×';
+
+        // Handle the click event on the '×' button
+        closeBtn.addEventListener('click', function(e) {
+            var optionValue = this.parentNode.textContent.replace('×', ''); // Remove the '×' to get the actual value
+            // Find and deselect the corresponding option in the select element
+            for (var j = 0; j < select_poisoner.options.length; j++) {
+                if (select_poisoner.options[j].value === optionValue) {
+                    select_poisoner.options[j].selected = false;
+                    break;
+                }
+            }
+            // Remove the tag from the display
+            this.parentNode.remove();
+            // Update the array after deselection
+            poisonerArr = poisonerArr.filter(function(value) { return value !== optionValue; });
+        });
+
+        tag.appendChild(closeBtn);
+        selectedTags_poisoner.appendChild(tag);
+        // Store the selected value in the array
+        poisonerArr.push(select_poisoner.options[i].value);
+        }
+    }
+
+
+  });
+
+  document.getElementById('resetButton').addEventListener('click', function() {
+    var select_normal = document.getElementById('select_normal');
+    var selectedTags_normal = document.querySelector('.selected-tags_normal');
+
+    // Clear selected options in the select element
+    for (var i = 0; i < select_normal.options.length; i++) {
+        select_normal.options[i].selected = false;
+    }
+
+    // Clear the tags display and reset the array
+    selectedTags_normal.innerHTML = '';
+    normalArr = []; // Reset the array
+  });
+
+    //获取数据
+    // 后台API的URL  
+    var apiUrl = 'http://127.0.0.1:5000/';  
+  
+    // 发送GET请求到后台API  
+    fetch(apiUrl)  
+        .then(response => {  
+            // 确保响应状态码为200-299  
+            if (!response.ok) {  
+                throw new Error('Network response was not ok');  
+            }  
+            // 解析JSON数据  
+            return response.json();  
+        })  
+        .then(data => {  
+            // 成功获取数据，更新HTML页面  
+            var dataContainer = document.getElementById('data-container');  
+            dataContainer.innerHTML = ''; // 清空容器内容  
+  
+            // 假设数据是一个对象数组，每个对象有name和value属性  
+            data.forEach(item => {  
+                var div = document.createElement('div');  
+                div.textContent = `名称: ${item.name}, 值: ${item.value}`;  
+                dataContainer.appendChild(div);  
+            });  
+        })  
+        .catch(error => {  
+            console.error('There has been a problem with your fetch operation:', error);  
+        });  
+
+        
+
+        document.getElementById('confirmButton').addEventListener('click', function() {  
+            
+            
+                // 将数组转换为 JSON 字符串  
+                //const arrayData_poi = JSON.stringify(poisonerArr);
+                //const arrayData_nor = JSON.stringify(normalArr);
+                
+                
+    
+                // 创建一个FormData对象来收集数据  
+                const formData = {
+                    radioValue: isChecked,  // Ensure isChecked is properly defined and assigned
+                    array1: poisonerArr,  // Directly use the array
+                    array2: normalArr,  // Directly use the array
+                     range: range  // Ensure range is defined and has a value
+                };
+                console.log(formData);
+                // 使用 fetch API 发送 POST 请求  
+                fetch('/submit_array', {  
+                    method: 'POST',  
+                    headers: {  
+                        'Content-Type': 'application/json'  
+                    },  
+                    body: JSON.stringify(formData)
+                })  
+                .then(response => {  
+                    if (response.ok) {  
+                        return response.json();  
+                    } else {  
+                        throw new Error('Network response was not ok.');  
+                    }  
+                })  
+                .then(data => {  
+                    console.log('Success:', data);  
+                    // 处理后端返回的数据  
+                    const imgElement4 = document.getElementById('image4');
+                    imgElement4.src = data.image4_url; // 设置 img 标签的 src 属性为图片的 URL
+                    const imgElement5 = document.getElementById('image5');
+                    imgElement5.src = data.image5_url; // 设置 img 标签的 src 属性为图片的 URL
+                })  
+                .catch(error => {  
+                    console.error('There has been a problem with your fetch operation:', error);  
+                }); 
+                
+                document.getElementById("img4").style.display = "inline-block"; 
+                document.getElementById("img5").style.display = "inline-block"; 
+        
+        });
+
+        // 获取自定义控件元素  
+    var customCheckbox = document.getElementById('myCustomCheckbox');  
+      
+      // 初始化选中状态  
+      var isChecked = false;  
+        
+      // 为自定义控件添加点击事件监听器  
+      customCheckbox.addEventListener('click', function() {  
+          // 切换选中状态  
+          isChecked = !isChecked;  
+            
+          // 根据选中状态更新控件的样式  
+          if (isChecked) {  
+              customCheckbox.classList.add('checked');  
+          } else {  
+              customCheckbox.classList.remove('checked');  
+          }  
+      }); 
+    </script>  
+</body>  
+  
+</html>

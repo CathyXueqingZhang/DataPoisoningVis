@@ -1,0 +1,61 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>自定义选中取消控件</title>  
+    <style>  
+        .custom-checkbox {  
+            position: relative;  
+            width: 30px; /* 增加宽度以容纳点和空间 */  
+            height: 30px; /* 增加高度以更好地显示 */  
+            border: 1px solid black;  
+            display: inline-block;  
+            cursor: pointer; /* 添加鼠标悬停效果 */  
+        }  
+        .custom-checkbox::before {  
+            content: '';  
+            position: absolute;  
+            top: 50%;  
+            left: 50%;  
+            transform: translate(-50%, -50%);  
+            width: 10px; /* 点的宽度 */  
+            height: 10px; /* 点的高度 */  
+            background-color: black; /* 点的颜色 */  
+            border-radius: 50%; /* 使点呈圆形 */  
+            opacity: 0; /* 初始时不显示点 */  
+            transition: opacity 0.3s ease; /* 添加过渡效果 */  
+        }  
+        .custom-checkbox.checked::before {  
+            opacity: 1; /* 选中时显示点 */  
+        }  
+    </style>  
+</head>  
+<body>  
+  
+<div class="custom-checkbox" id="myCustomCheckbox"></div>  
+<label for="myCustomCheckbox">点击我选中/取消</label>  
+  
+<script>  
+    // 获取自定义控件元素  
+    var customCheckbox = document.getElementById('myCustomCheckbox');  
+      
+    // 初始化选中状态  
+    var isChecked = false;  
+      
+    // 为自定义控件添加点击事件监听器  
+    customCheckbox.addEventListener('click', function() {  
+        // 切换选中状态  
+        isChecked = !isChecked;  
+          
+        // 根据选中状态更新控件的样式  
+        if (isChecked) {  
+            customCheckbox.classList.add('checked');  
+        } else {  
+            customCheckbox.classList.remove('checked');  
+        }  
+    });  
+</script>  
+  
+</body>  
+</html>
